@@ -5,12 +5,12 @@ const Hero = () => {
   return (
     <div className="relative h-screen w-full">
       {/* Background Image */}
-      <div className="absolute w-full h-full inset-0">
+      <div className="absolute lg:w-[130vw] h-full inset-0 flex justify-center items-center">
         <Image
           src="https://polarisk9.s3.us-east-1.amazonaws.com/hero.png" // Make sure to add your image to the public folder
           alt="Hero background"
           fill
-          className="object-cover  h-full"
+          className="object-cover w-full h-full"
           priority
         />
       </div>
