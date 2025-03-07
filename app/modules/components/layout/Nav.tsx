@@ -16,27 +16,23 @@ import {
   Divider,
 } from "@heroui/react";
 import {Icon} from "@iconify/react";
-import { HeroUIProvider } from "@heroui/react";
-import {cn} from "@heroui/react";
-
+import { cn } from "@/app/lib/utils/cn";
+import Image from "next/image";
 
 
 const menuItems = [
+  "Home",
   "About",
-  "Blog",
-  "Customers",
-  "Pricing",
-  "Enterprise",
-  "Changelog",
-  "Documentation",
-  "Contact Us",
+  "Services",
+  "Contact",
+  "Merch"
 ];
 
 export default function Nav(props: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   return (
-    <HeroUIProvider>
+ 
     <Navbar
       {...props}
       classNames={{
@@ -54,8 +50,9 @@ export default function Nav(props: NavbarProps) {
       <NavbarBrand>
         <div className="rounded-full bg-foreground text-background">
       {/*logo */}
+      <Image src="https://polarisk9.s3.us-east-1.amazonaws.com/Untitled+design+(5).png" alt="Polaris K9" width={100} height={100} />
         </div>
-        <span className="ml-2 text-small font-medium">ACME</span>
+        <span className="ml-2 text-small font-medium">Polaris K9</span>
       </NavbarBrand>
 
       {/* Center Content */}
@@ -67,22 +64,22 @@ export default function Nav(props: NavbarProps) {
         </NavbarItem>
         <NavbarItem>
           <Link className="text-default-500" href="#" size="sm">
-            Features
+            Services
           </Link>
         </NavbarItem>
         <NavbarItem isActive>
           <Link aria-current="page" color="foreground" href="#" size="sm">
-            Customers
+            About
           </Link>
         </NavbarItem>
         <NavbarItem>
           <Link className="text-default-500" href="#" size="sm">
-            About Us
+            Contact
           </Link>
         </NavbarItem>
         <NavbarItem>
           <Link className="text-default-500" href="#" size="sm">
-            Integrations
+            Merch
           </Link>
         </NavbarItem>
       </NavbarContent>
@@ -91,7 +88,7 @@ export default function Nav(props: NavbarProps) {
       <NavbarContent className="hidden md:flex" justify="end">
         <NavbarItem className="ml-2 !flex gap-2">
           <Button className="text-default-500" radius="full" variant="light">
-            Login
+            Phone 
           </Button>
           <Button
             className="bg-foreground font-medium text-background"
@@ -100,7 +97,7 @@ export default function Nav(props: NavbarProps) {
             radius="full"
             variant="flat"
           >
-            Get Started
+            Free Quote
           </Button>
         </NavbarItem>
       </NavbarContent>
@@ -110,12 +107,12 @@ export default function Nav(props: NavbarProps) {
       <NavbarMenu className="top-[calc(var(--navbar-height)_-_1px)] max-h-fit bg-default-200/50 pb-6 pt-6 shadow-medium backdrop-blur-md backdrop-saturate-150 dark:bg-default-100/50">
         <NavbarMenuItem>
           <Button fullWidth as={Link} href="/#" variant="faded">
-            Sign In
+            Phone
           </Button>
         </NavbarMenuItem>
         <NavbarMenuItem className="mb-4">
           <Button fullWidth as={Link} className="bg-foreground text-background" href="/#">
-            Get Started
+            Free Quote
           </Button>
         </NavbarMenuItem>
         {menuItems.map((item, index) => (
@@ -128,6 +125,6 @@ export default function Nav(props: NavbarProps) {
         ))}
       </NavbarMenu>
     </Navbar>
-    </HeroUIProvider>
+  
   );
 }
