@@ -15,9 +15,9 @@ export default function Component() {
      <LeftRight
   imageSrc="https://polarisk9.s3.us-east-1.amazonaws.com/vrooman.png"
   imageAlt="Description of the image"
-  header="Your Main Heading"
-  subText="Your descriptive text goes here. Make it engaging and informative."
-  ctaText="Get Started"
+  header="Meet The Founder"
+  subText="Jessie Vrooman, the founder of Polaris K9, is a seasoned K9 trainer with over a decade of experience in the military and the K9 industry."
+  ctaText="Learn More"
   ctaLink="/about"
   reverse={false} // Will show image on right
   headerColor="text-white"
@@ -25,9 +25,9 @@ export default function Component() {
 />
   <LeftRight
   imageSrc="https://polarisk9.s3.us-east-1.amazonaws.com/new+%E2%80%94+arrivals+(1).png"
-  imageAlt="Description of the image"
-  header="Your Main Heading"
-  subText="Your descriptive text goes here. Make it engaging and informative."
+  imageAlt="Check out our new arrivals"
+  header="Check Out Our Merch"
+  subText="We have a variety of merchandise available for purchase. Make sure to check out our new arrivals and see what we have to offer."
   ctaText="Get Started"
   ctaLink="/merch"
   reverse={true} 
@@ -35,6 +35,7 @@ export default function Component() {
   imageShadow="none"
   headerColor="text-white"
   subTextColor="text-white"
+  
 />
 <CarouselDemo />
 <Contact />

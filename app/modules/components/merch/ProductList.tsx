@@ -12,23 +12,23 @@ interface Product {
 const products: Product[] = [
   {
     id: 1,
-    imageSrc: "https://polarisk9.s3.us-east-1.amazonaws.com/merch/merch1.png",
-    title: "Training Equipment",
-    href: "/contact",
+    imageSrc: "https://polarisk9.s3.us-east-1.amazonaws.com/merch/hoodie.png",
+    title: "Veni Vidi Vici Hoodie",
+    href: "https://checkout.square.site/buy/P2P2WZBUDSTQNMHEADHYXL6D",
     imageAlt: "Dog training equipment collection"
   },
   {
     id: 2,
-    imageSrc: "https://polarisk9.s3.us-east-1.amazonaws.com/merch/merch2.png",
-    title: "Apparel",
-    href: "/contact",
+    imageSrc: "https://polarisk9.s3.us-east-1.amazonaws.com/merch/cap.png",
+    title: "Trucker Hat - OD Green and Black",
+    href: "https://checkout.square.site/buy/RAFPPXRKVAJAURMFKOASKAH4",
     imageAlt: "Polaris K9 branded apparel"
   },
   {
     id: 3,
-    imageSrc: "https://polarisk9.s3.us-east-1.amazonaws.com/merch/merch3.png",
-    title: "Accessories",
-    href: "/contact",
+    imageSrc: "https://polarisk9.s3.us-east-1.amazonaws.com/merch/capBlack.png",
+    title: "Trucker Hat - Black",
+    href: "https://checkout.square.site/buy/WXY3QBWJZTZF2BRFB4ERHMWV",
     imageAlt: "Dog accessories and gear"
   }
 ];
