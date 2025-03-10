@@ -25,6 +25,7 @@ export default function Component() {
   headerColor="text-white"
   subTextColor="text-white"
   backgroundColor="bg-black"
+  objectTop={true}
 />
   <LeftRight
   imageSrc="https://polarisk9.s3.us-east-1.amazonaws.com/new+%E2%80%94+arrivals+(1).png"

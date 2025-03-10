@@ -5,7 +5,7 @@ import LeftRight from '../modules/components/cta/LeftRight';
 export default function ServicesPage() {
   return (
     <Page>
-      <Hero title="Services" />
+      <Hero title="Services" backgroundImage='https://polarisk9.s3.us-east-1.amazonaws.com/heros/spruce-pets-200-types-of-dogs-45a7bd12aacf458cb2e77b841c41abe7.jpg' />
       <LeftRight
         header="One-on-One Training"
         subText="Transform your dog's behavior with our personalized training sessions. Our experienced trainers work directly with you and your dog to address specific challenges and build a strong foundation of obedience. Whether you're dealing with basic commands or complex behavioral issues, we'll create a tailored program to meet your needs."
@@ -16,6 +16,7 @@ export default function ServicesPage() {
         headerColor="text-white"
         subTextColor="text-white"
         backgroundColor="bg-black"
+        objectTop={true}
       />
       <LeftRight
         header="Group Classes"
