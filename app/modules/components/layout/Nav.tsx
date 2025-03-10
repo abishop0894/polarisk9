@@ -44,18 +44,30 @@ export default function Nav() {
   }, [isOpen]);
 
   const navVariants = {
-    initial: { height: "6rem" },
+    initial: { 
+      height: "6rem",
+      backgroundColor: "rgba(255, 255, 255, 0)",
+      backdropFilter: "none",
+      transition: { duration: 1, ease: [0.4, 0, 0.2, 1] }
+    },
     scrolled: { 
       height: "4rem",
-      transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] }
+      backgroundColor: "rgba(255, 255, 255, 0.9)",
+      backdropFilter: "blur(8px)",
+      transition: { duration: 1, ease: [0.4, 0, 0.2, 1] }
     }
   };
 
   const logoVariants = {
-    initial: { scale: 1 },
+    initial: { 
+      scale: 1,
+      filter: "invert(0)",
+      transition: { duration: 1, ease: [0.4, 0, 0.2, 1] }
+    },
     scrolled: {
       scale: 0.7,
-      transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] }
+      filter: "invert(0)",
+      transition: { duration: 1, ease: [0.4, 0, 0.2, 1] }
     }
   };
 
@@ -64,7 +76,7 @@ export default function Nav() {
       <motion.nav
         variants={navVariants}
         animate={scrolled ? "scrolled" : "initial"}
-        className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-sm"
+        className="fixed top-0 left-0 right-0 z-50"
       >
         <div className="max-w-7xl mx-auto px-4 h-full flex items-center justify-between">
           {/* Logo */}
@@ -92,7 +104,7 @@ export default function Nav() {
                 key={item.path}
                 href={item.path}
                 className={cn(
-                  "relative text-gray-600 hover:text-gray-900 transition-colors py-2",
+                  "relative transition-colors py-2 text-gray-600 hover:text-gray-900",
                   pathname === item.path && "text-gray-900 font-medium"
                 )}
                 whileHover={{ y: -2 }}
@@ -114,7 +126,7 @@ export default function Nav() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-4 py-2 text-gray-700 hover:text-gray-900 transition-colors font-medium"
+              className="px-4 py-2 transition-colors font-bold text-gray-700 hover:text-gray-900"
             >
               Call Now
             </motion.button>

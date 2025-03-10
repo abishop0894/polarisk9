@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaGithub, FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
+import { FaInstagram, FaFacebook } from 'react-icons/fa';
 import Link from 'next/link';
 
 const Footer: React.FC = () => {
@@ -42,6 +42,7 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
+
           {/* Contact Info */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
@@ -60,15 +61,12 @@ const Footer: React.FC = () => {
         <div className="mt-12 pt-8 border-t border-gray-700">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex space-x-6">
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition">
-                <FaGithub className="h-6 w-6" />
-              </a>
+             
+              
               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition">
-                <FaTwitter className="h-6 w-6" />
+                <FaFacebook className="h-6 w-6" />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition">
-                <FaLinkedin className="h-6 w-6" />
-              </a>
+           
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition">
                 <FaInstagram className="h-6 w-6" />
               </a>

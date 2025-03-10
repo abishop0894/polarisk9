@@ -15,6 +15,7 @@ export default function ServicesPage() {
         ctaLink="/contact"
         headerColor="text-white"
         subTextColor="text-white"
+        backgroundColor="bg-black"
       />
       <LeftRight
         header="Group Classes"
@@ -25,7 +26,7 @@ export default function ServicesPage() {
         ctaLink="/contact"
         headerColor="text-white"
         subTextColor="text-white"
-        backgroundColor="bg-[#5f5d57]"
+        backgroundColor="bg-gradient-to-r from-gray-900 to-gray-800"
         reverse={true}
       />
       <LeftRight
@@ -37,6 +38,7 @@ export default function ServicesPage() {
         ctaLink="/contact"
         headerColor="text-white"
         subTextColor="text-white"
+        backgroundColor="bg-black"
       />
     </Page>
   );

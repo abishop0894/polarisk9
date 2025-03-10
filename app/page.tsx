@@ -10,7 +10,9 @@ export default function Component() {
 
     <Page>
      <Hero />
+     <div className="bg-gradient-to-r from-gray-900 to-gray-800">
      <ScrollingBannerComp />
+     </div>
      <Services />
      <LeftRight
   imageSrc="https://polarisk9.s3.us-east-1.amazonaws.com/vrooman.png"
@@ -29,10 +31,10 @@ export default function Component() {
   imageAlt="Check out our new arrivals"
   header="Check Out Our Merch"
   subText="We have a variety of merchandise available for purchase. Make sure to check out our new arrivals and see what we have to offer."
-  ctaText="Get Started"
+  ctaText="Shop Now"
   ctaLink="/merch"
   reverse={true} 
-  backgroundColor="bg-[#5f5d57]"
+  backgroundColor="bg-gradient-to-r from-gray-900 to-gray-800"
   imageShadow="none"
   headerColor="text-white"
   subTextColor="text-white"
