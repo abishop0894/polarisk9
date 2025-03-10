@@ -15,6 +15,7 @@ export default function About() {
         ctaLink="/contact"
         headerColor="text-white"
         subTextColor="text-white"
+        backgroundColor="bg-black"
       />
       <LeftRight
         header="Meet Jessie Vrooman, Owner and Founder"

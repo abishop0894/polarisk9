@@ -22,6 +22,7 @@ export default function Component() {
   reverse={false} // Will show image on right
   headerColor="text-white"
   subTextColor="text-white"
+  backgroundColor="bg-black"
 />
   <LeftRight
   imageSrc="https://polarisk9.s3.us-east-1.amazonaws.com/new+%E2%80%94+arrivals+(1).png"
