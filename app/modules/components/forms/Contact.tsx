@@ -1,33 +1,36 @@
 'use client'
-import { useState, FormEvent, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 // Replace with your actual Mapbox token
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
 
+
+
 interface ContactFormData {
   name: string;
   email: string;
-  subject: string;
+  phone: string;
   message: string;
 }
 
 const Contact = () => {
-  const [formData, setFormData] = useState<ContactFormData>({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
-
-  const [status, setStatus] = useState<{
+  const [submitStatus, setSubmitStatus] = useState<{
     type: 'success' | 'error' | null;
     message: string;
   }>({
     type: null,
     message: '',
   });
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting }
+  } = useForm<ContactFormData>();
 
   useEffect(() => {
     // Initialize map
@@ -49,35 +52,38 @@ const Contact = () => {
     return () => map.remove();
   }, []);
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    
-    if (!formData.name || !formData.email || !formData.message) {
-      setStatus({
-        type: 'error',
-        message: 'Please fill in all required fields',
-      });
-      return;
-    }
-
+  const onSubmit = async (data: ContactFormData) => {
     try {
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      setSubmitStatus({ type: null, message: '' });
       
-      setStatus({
-        type: 'success',
-        message: 'Thank you for your message. We will get back to you soon!',
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: "2e246373-5631-4c6d-9e82-b76db71672be",
+          ...data,
+          subject: `New contact form submission from ${data.name}`,
+        })
       });
+
+      const result = await response.json();
       
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: '',
-      });
-    } catch {
-      setStatus({
+      if (response.ok) {
+        setSubmitStatus({
+          type: 'success',
+          message: 'Thank you for your message. We will get back to you soon!'
+        });
+        reset();
+      } else {
+        throw new Error(result.message || 'Something went wrong');
+      }
+    } catch (error) {
+      setSubmitStatus({
         type: 'error',
-        message: 'Something went wrong. Please try again later.',
+        message: error instanceof Error ? error.message : 'Failed to send message. Please try again.'
       });
     }
   };
@@ -86,31 +92,30 @@ const Contact = () => {
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-            
           <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
             Contact Us
           </h2>
           <p className="mt-4 text-lg text-gray-500">
-           For more information, to book training, or any other questions, please send us a message.
+            For more information, to book training, or any other questions, please send us a message.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Contact Form Section */}
           <div className="bg-white rounded-lg shadow-lg p-6 sm:p-8">
-            {status.type && (
+            {submitStatus.type && (
               <div
                 className={`mb-6 p-4 rounded-lg ${
-                  status.type === 'success'
+                  submitStatus.type === 'success'
                     ? 'bg-green-100 text-green-700'
                     : 'bg-red-100 text-red-700'
                 }`}
               >
-                {status.message}
+                {submitStatus.message}
               </div>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div>
                 <label
                   htmlFor="name"
@@ -121,13 +126,20 @@ const Contact = () => {
                 <input
                   type="text"
                   id="name"
-                  value={formData.name}
-                  onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
-                  }
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  required
+                  className={`w-full px-4 py-2 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                    errors.name ? 'border-red-500' : ''
+                  }`}
+                  {...register('name', {
+                    required: 'Name is required',
+                    minLength: {
+                      value: 2,
+                      message: 'Name must be at least 2 characters'
+                    }
+                  })}
                 />
+                {errors.name && (
+                  <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
+                )}
               </div>
 
               <div>
@@ -140,31 +152,45 @@ const Contact = () => {
                 <input
                   type="email"
                   id="email"
-                  value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  required
+                  className={`w-full px-4 py-2 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                    errors.email ? 'border-red-500' : ''
+                  }`}
+                  {...register('email', {
+                    required: 'Email is required',
+                    pattern: {
+                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                      message: 'Invalid email address'
+                    }
+                  })}
                 />
+                {errors.email && (
+                  <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
+                )}
               </div>
 
               <div>
                 <label
-                  htmlFor="subject"
+                  htmlFor="phone"
                   className="block text-sm font-medium text-gray-700 mb-1"
                 >
-                  Subject
+                  Phone
                 </label>
                 <input
-                  type="text"
-                  id="subject"
-                  value={formData.subject}
-                  onChange={(e) =>
-                    setFormData({ ...formData, subject: e.target.value })
-                  }
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  type="tel"
+                  id="phone"
+                  className={`w-full px-4 py-2 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                    errors.phone ? 'border-red-500' : ''
+                  }`}
+                  {...register('phone', {
+                    pattern: {
+                      value: /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/,
+                      message: 'Invalid phone number'
+                    }
+                  })}
                 />
+                {errors.phone && (
+                  <p className="mt-1 text-sm text-red-600">{errors.phone.message}</p>
+                )}
               </div>
 
               <div>
@@ -176,21 +202,31 @@ const Contact = () => {
                 </label>
                 <textarea
                   id="message"
-                  value={formData.message}
-                  onChange={(e) =>
-                    setFormData({ ...formData, message: e.target.value })
-                  }
                   rows={5}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  required
+                  className={`w-full px-4 py-2 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                    errors.message ? 'border-red-500' : ''
+                  }`}
+                  {...register('message', {
+                    required: 'Message is required',
+                    minLength: {
+                      value: 10,
+                      message: 'Message must be at least 10 characters'
+                    }
+                  })}
                 />
+                {errors.message && (
+                  <p className="mt-1 text-sm text-red-600">{errors.message.message}</p>
+                )}
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-200"
+                disabled={isSubmitting}
+                className={`w-full bg-blue-600 text-white py-3 px-6 rounded-lg transition-colors duration-200 ${
+                  isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-700'
+                }`}
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           </div>
@@ -206,7 +242,7 @@ const Contact = () => {
                 Our Location
               </h3>
               <p className="text-gray-600">
-                 Street<br />
+                Street<br />
                 Virginia Beach, VA 23451<br />
                 United States
               </p>

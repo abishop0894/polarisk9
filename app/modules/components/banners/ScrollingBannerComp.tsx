@@ -55,6 +55,45 @@ const logos = [
     logo: Logo10,
     src: "https://polarisk9.s3.us-east-1.amazonaws.com/logos/logo.svg",
   },
+   {
+    key: "logo-11",
+    logo: Logo1,
+    src: "https://polarisk9.s3.us-east-1.amazonaws.com/logos/images.svg",  
+  },
+  {
+    key: "logo-12",
+    logo: Logo2,
+    src: "https://polarisk9.s3.us-east-1.amazonaws.com/logos/logo.svg",
+  },
+  {
+    key: "logo-13",
+    logo: Logo3,
+    src: "https://polarisk9.s3.us-east-1.amazonaws.com/logos/Purina-logo.svg.svg",
+  },
+  {
+    key: "logo-14",
+    logo: Logo4,
+    src: "https://polarisk9.s3.us-east-1.amazonaws.com/logos/redlinelogo_495x.webp",
+  }, {
+    key: "logo-15",
+    logo: Logo1,
+    src: "https://polarisk9.s3.us-east-1.amazonaws.com/logos/images.svg",  
+  },
+  {
+    key: "logo-16",
+    logo: Logo2,
+    src: "https://polarisk9.s3.us-east-1.amazonaws.com/logos/logo.svg",
+  },
+  {
+    key: "logo-17",
+    logo: Logo3,
+    src: "https://polarisk9.s3.us-east-1.amazonaws.com/logos/Purina-logo.svg.svg",
+  },
+  {
+    key: "logo-18",
+    logo: Logo4,
+    src: "https://polarisk9.s3.us-east-1.amazonaws.com/logos/redlinelogo_495x.webp",
+  },
 ];
 
 export default function Component() {
