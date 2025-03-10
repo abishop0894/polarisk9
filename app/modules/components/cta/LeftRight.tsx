@@ -15,6 +15,7 @@ interface LeftRightProps {
   headerColor?: string;
   subTextColor?: string;
   objectFit?: 'cover' | 'contain' | 'fill' | 'none' | 'scale-down';
+  objectTop?: boolean;
 }
 
 export default function LeftRight({
@@ -29,7 +30,8 @@ export default function LeftRight({
   imageShadow = 'shadow-lg',
   headerColor = 'text-gray-900',
   subTextColor = 'text-gray-600',
-  objectFit = 'cover'
+  objectFit = 'cover',
+  objectTop
 }: LeftRightProps) {
   return (
     <div className={`${backgroundColor} px-4 py-16`}>
@@ -40,7 +42,8 @@ export default function LeftRight({
             src={imageSrc}
             alt={imageAlt}
             fill
-            className={`rounded-lg ${imageShadow} object-${objectFit}`}
+            className={`rounded-lg ${objectTop && 'lg:object-top'} ${imageShadow} object-${objectFit}`}
+         
             priority
           />
         </div>

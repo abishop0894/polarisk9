@@ -47,10 +47,9 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
             <ul className="space-y-2 text-gray-300">
-              <li>Adress</li>
-              <li>City and Zip</li>
-              <li>email</li>
-              <li>phone</li>
+              <li>Virginia Beach, VA 23451</li>
+              <li>Email: polarisk9@gmail.com</li>
+              <li>Phone: (757) 563-4949</li>
             </ul>
           </div>
 

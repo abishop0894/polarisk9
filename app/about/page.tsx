@@ -5,7 +5,7 @@ import LeftRight from '../modules/components/cta/LeftRight';
 export default function About() {
   return (
     <Page>
-      <Hero title="About" />
+      <Hero title="About" backgroundImage='https://polarisk9.s3.us-east-1.amazonaws.com/heros/20MML008_AU_Vet_Med_Canine_Performance.jpg' />
       <LeftRight
         header="Quality Training You Can Trust"
         subText=" With years of experience working with law enforcement, Military Working Dogs, Sport K9s, and more, Jessie Vrooman has dedicated his life to building stronger and more effective K9 teams. At Polaris K9, LLC, we strive to build confident working dogs to handle any situation that may come their way through training like we fight. We provide services and training in Narcotics/Explosive Detection, Tracking, Bite Work, Personal Protection, Basic Obedience, and E-Collar. We ensure that every dog with which we have the honor to work receives the highest level of care and training. Let's bring out the best in your K9."
@@ -28,6 +28,7 @@ export default function About() {
         subTextColor="text-white"
         backgroundColor="bg-black"
         reverse={true}
+        objectTop={true}
       />
     </Page>
   );
