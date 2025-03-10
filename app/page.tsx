@@ -5,6 +5,7 @@ import ScrollingBannerComp from "@/app/modules/components/banners/ScrollingBanne
 import { CarouselDemo } from "@/app/modules/components/carousel/CarouselComp";
 import Contact from "@/app/modules/components/forms/Contact";
 import Services from "@/app/modules/components/services/Services";
+import Widget from "@/app/modules/components/layout/Widget";
 export default function Component() {
   return (
 
@@ -43,6 +44,7 @@ export default function Component() {
 />
 <CarouselDemo />
 <Contact />
+<Widget />
     </Page>
   );
 }
