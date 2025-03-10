@@ -37,6 +37,7 @@ const Contact = () => {
       center: [-76.1366, 36.8438], 
       zoom: 13,
       scrollZoom: false,
+      cooperativeGestures: true,
     });
 
     // Add marker

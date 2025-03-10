@@ -18,6 +18,7 @@ const Hero = ({
         fill
         className="object-cover object-center"
         priority
+        loading="eager"
       />
        <div className="absolute inset-0 bg-gradient-to-r from-white to-transparent" />
       <div className="absolute inset-0 flex items-center justify-center">
