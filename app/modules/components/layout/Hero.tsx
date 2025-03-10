@@ -25,7 +25,7 @@ const Hero = () => {
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 drop-shadow-lg">
              Elite K9 Training for Those Who Protect and Serve
             </h1>
-            <p className="text-xl md:text-2xl text-gray-900 mb-8 leading-relaxed tracking-wide drop-shadow-[0_4px_4px_rgba(0,0,0,0.3)]">
+            <p className="text-xl md:text-2xl font-extrabold text-black  mb-8 leading-relaxed tracking-wide drop-shadow-[0_4px_4px_rgba(0,0,0,0.3)]">
             Polaris delivers mission-critical canine training solutions for military and law enforcement units in the DMV area. Our battle-tested methodologies produce K9 assets with superior detection, apprehension, and tactical capabilities.
             </p>
             <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg text-lg font-semibold transition-transform hover:scale-105 shadow-xl hover:shadow-2xl">
