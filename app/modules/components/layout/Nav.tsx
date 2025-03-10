@@ -123,13 +123,16 @@ export default function Nav() {
 
           {/* Desktop CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-4">
+            <Link href="tel:(757) 563-4949">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-4 py-2 transition-colors font-bold text-gray-700 hover:text-gray-900"
             >
+              
               Call Now
-            </motion.button>
+            </motion.button></Link>
+            <Link href="/contact">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -137,6 +140,7 @@ export default function Nav() {
             >
               Get Free Quote
             </motion.button>
+            </Link>
           </div>
 
           {/* Mobile Menu Trigger */}
@@ -246,12 +250,16 @@ export default function Nav() {
                   transition={{ delay: 0.3 }}
                   className="pt-6 space-y-4"
                 >
+                  <Link href="tel:(757) 563-4949">
                   <button className="w-full px-4 py-3 text-gray-700 hover:text-gray-900 border border-gray-200 rounded-lg font-medium transition-colors">
                     Call Now
                   </button>
+                  </Link>
+                  <Link href="/contact">
                   <button className="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg font-medium shadow-md hover:shadow-lg transition-shadow">
                     Get Free Quote
                   </button>
+                  </Link>
                 </motion.div>
               </div>
             </motion.div>
