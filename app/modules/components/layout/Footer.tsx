@@ -48,8 +48,8 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
             <ul className="space-y-2 text-gray-300">
               <li>Virginia Beach, VA 23451</li>
-              <li>Email: polarisk9@gmail.com</li>
-              <li>Phone: (757) 563-4949</li>
+              <li>Email: <Link href="mailto:polarisk9@gmail.com">polarisk9@gmail.com</Link></li>
+              <li>Phone: <Link href="tel:(757) 563-4949">(757) 563-4949</Link></li>
             </ul>
           </div>
 

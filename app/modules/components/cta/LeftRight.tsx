@@ -37,12 +37,12 @@ export default function LeftRight({
     <div className={`${backgroundColor} px-4 py-16`}>
       <div className={`container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center ${reverse ? 'md:grid-flow-col md:grid-cols-2' : ''}`}>
         {/* Image */}
-        <div className={`relative w-full h-[400px] ${reverse ? 'md:order-last' : ''}`}>
+        <div className={`relative w-full h-[600px] ${reverse ? 'md:order-last' : ''}`}>
           <Image
             src={imageSrc}
             alt={imageAlt}
             fill
-            className={`rounded-lg ${objectTop && 'lg:object-top'} ${imageShadow} object-${objectFit}`}
+            className={`rounded-lg ${objectTop && 'lg:object-center'} ${imageShadow} object-${objectFit}`}
          
             priority
           />
